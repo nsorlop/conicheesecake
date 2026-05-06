@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo | Coni Cheesecake</title>
+    
+    <meta property="og:title" content="Menú de Tartas | Coni Cheesecake">
+    <meta property="og:description" content="Descubre nuestras 9 variedades artesanales y especiales de temporada.">
+    <meta property="og:image" content="publicitat_coni_cheesecake.png">
+
+    <link rel="icon" type="image/png" href="logo2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
+            <a href="index.html" class="logo">
+                <img src="logo2.png" alt="Coni Cheesecake Logo" class="nav-logo">
+            </a>
+            <div class="nav-links" id="nav-links">
+                <button class="close-menu" onclick="closeAllModals()">×</button>
+                <a href="index.html">Inicio</a>
+                <a href="tartas.html">Nuestras Tartas</a>
+                <a href="nosotros.html">La Esencia</a>
+            </div>
+            <button class="cart-btn" onclick="toggleCart(true)">🛒 <span class="cart-text">Cesta</span> (<span id="cart-count">0</span>)</button>
+        </div>
+    </nav>
+
+    <div id="cart-overlay" class="cart-overlay" onclick="closeAllModals()"></div>
+
+    <div id="cart-sidebar" class="cart-sidebar">
+        <div class="cart-header">
+            <h3 style="color: var(--color-primary); font-size: 1.5rem;">Tu Pedido</h3>
+            <button class="close-cart" onclick="toggleCart(false)">×</button>
+        </div>
+        <div id="cart-items-container" class="cart-items"></div>
+        <div class="cart-footer">
+            <div class="total-line"><span>Total estimado:</span> <span id="cart-total">0€</span></div>
+            <button class="btn btn-primary w-100" onclick="sendToWhatsApp()">Pedir por WhatsApp</button>
+            <p style="text-align: center; font-size: 0.8rem; color: var(--color-text-light); margin-top: 10px;">Pago en recogida. La Font de la Figuera.</p>
+        </div>
+    </div>
+
+    <section class="section" style="padding-top: 100px;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 70px;">
+                <p style="color: var(--color-secondary); font-weight: bold; letter-spacing: 2px;">NUESTRO MENÚ</p>
+                <h2 style="font-size: 3.5rem;">Colección Artesanal</h2>
+            </div>
+
+            <div class="specials-grid">
+                
+                <article class="special-cake-col">
+                    <img src="prox.jpg" alt="Chocolate y Gofre">
+                    <div class="special-content">
+                        <span class="badge">Especial del Mes</span>
+                        <h3>Chocolate y Gofre</h3>
+                        
+                        <div class="allergen-icons" title="Contiene: Lácteos, Huevos, Gluten, Soja">
+                            <img src="lacteos.png" alt="Lácteos">
+                            <img src="huevos.png" alt="Huevos">
+                            <img src="gluten.png" alt="Gluten">
+                            <img src="soja.png" alt="Soja">
+                        </div>
+
+                        <p style="font-size: 1.1rem; margin-bottom: 20px; opacity: 0.9; flex-grow: 1;">Nuestra crema fundente clásica fusionada con chocolate intenso y coronada con trozos de auténtico gofre belga.</p>
+                        
+                        <select id="size-especial-mes" class="size-selector" style="margin-bottom: 25px; border:none; background: rgba(255,255,255,0.9);">
+                            <option data-size="Pequeña (3 pers)" data-price="9">Pequeña (500g) - 9€</option>
+                            <option data-size="Mediana (8 pers)" data-price="22">Mediana (1.4kg) - 22€</option>
+                            <option data-size="Grande (16 pers)" data-price="38">Grande (3kg) - 38€</option>
+                        </select>
+                        <button class="btn btn-outline" style="border-color: white; color: white; width: 100%;" onclick="addProductToCart(event, 'especial-mes', 'Chocolate y Gofre (Mes)')">Añadir al carrito</button>
+                    </div>
+                </article>
+
+                <article class="special-cake-col" style="background: linear-gradient(135deg, #D28C33 0%, #A86518 100%);">
+                    <img src="prox.jpg" alt="Limón y Merengue Flambeado">
+                    <div class="special-content">
+                        <span class="badge" style="background: var(--color-primary);">Edición de Temporada</span>
+                        <h3>Limón y Merengue</h3>
+                        
+                        <div class="allergen-icons" title="Contiene: Lácteos, Huevos, Gluten">
+                            <img src="lacteos.png" alt="Lácteos">
+                            <img src="huevos.png" alt="Huevos">
+                            <img src="gluten.png" alt="Gluten">
+                        </div>
+
+                        <p style="font-size: 1.1rem; margin-bottom: 20px; opacity: 0.9; flex-grow: 1;">El equilibrio perfecto. Crema suave con un toque cítrico vibrante de limón, coronada con un merengue italiano flambeado a mano.</p>
+                        
+                        <select id="size-especial-temp" class="size-selector" style="margin-bottom: 25px; border:none; background: rgba(255,255,255,0.9);">
+                            <option data-size="Pequeña (3 pers)" data-price="9">Pequeña (500g) - 9€</option>
+                            <option data-size="Mediana (8 pers)" data-price="22">Mediana (1.4kg) - 22€</option>
+                            <option data-size="Grande (16 pers)" data-price="38">Grande (3kg) - 38€</option>
+                        </select>
+                        <button class="btn btn-outline" style="border-color: white; color: white; width: 100%;" onclick="addProductToCart(event, 'especial-temp', 'Limón y Merengue (Temporada)')">Añadir al carrito</button>
+                    </div>
+                </article>
+
+            </div>
+
+            <div class="text-center" style="margin: 60px 0 30px;">
+                <h2 style="font-size: 2.5rem;">Los Clásicos</h2>
+            </div>
+            
+            <div class="menu-grid">
+                
+                <article class="product-card">
+                    <span class="bestseller-badge">⭐ Más Vendida</span>
+                    <img src="clasica.jpg" alt="Clásica">
+                    <div class="card-content">
+                        <h3>Clásica</h3>
+                        <div class="allergen-icons">
+                            <img src="lacteos.png" alt="Lácteos" title="Lácteos"><img src="huevos.png" alt="Huevos" title="Huevos"><img src="gluten.png" alt="Gluten" title="Gluten">
+                        </div>
+                        <p class="desc">La receta pura. Quesos cremosos seleccionados y base crujiente.</p>
+                        <select id="size-tarta1" class="size-selector">
+                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
+                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
+                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                        </select>
+                        <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta1', 'Clásica')">Añadir</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="oreo.jpg" alt="Oreo">
+                    <div class="card-content">
+                        <h3>Oreo</h3>
+                        <div class="allergen-icons">
+                            <img src="lacteos.png" title="Lácteos"><img src="huevos.png" title="Huevos"><img src="gluten.png" title="Gluten"><img src="soja.png" title="Soja">
+                        </div>
+                        <p class="desc">Base oscura, interior cremoso con trozos y lluvia de chocolate.</p>
+                        <select id="size-tarta2" class="size-selector">
+                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
+                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
+                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                        </select>
+                        <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta2', 'Oreo')">Añadir</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="lotus.jpg" alt="Lotus">
+                    <div class="card-content">
+                        <h3>Lotus</h3>
+                        <div class="allergen-icons">
+                            <img src="lacteos.png" title="Lácteos"><img src="huevos.png" title="Huevos"><img src="gluten.png" title="Gluten"><img src="soja.png" title="Soja">
+                        </div>
+                        <p class="desc">Base y cobertura espectacular de galleta caramelizada Lotus Biscoff.</p>
+                        <select id="size-tarta3" class="size-selector">
+                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
+                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
+                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                        </select>
+                        <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta3', 'Lotus')">Añadir</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="prox.jpg" alt="Kinder">
+                    <div class="card-content">
+                        <h3>Kinder</h3>
+                        <div class="allergen-icons">
+                            <img src="lacteos.png" title="Lácteos"><img src="huevos.png" title="Huevos"><img src="gluten.png" title="Gluten"><img src="frutos_secos.png" title="Frutos Secos"><img src="soja.png" title="Soja">
+                        </div>
+                        <p class="desc">El sabor inconfundible. Crema de avellanas tostadas y chocolate con leche.</p>
+                        <select id="size-tarta4" class="size-selector">
+                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
+                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
+                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                        </select>
+                        <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta4', 'Kinder')">Añadir</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="prox.jpg" alt="Dinosaurus chocblanco">
+                    <div class="card-content">
+                        <h3>Dinosaurus Chocblanco</h3>
+                        <div class="allergen-icons">
+                            <img src="lacteos.png" title="Lácteos"><img src="huevos.png" title="Huevos"><img src="gluten.png" title="Gluten"><img src="soja.png" title="Soja">
+                        </div>
+                        <p class="desc">Pura nostalgia. Base de galleta mítica y deliciosa capa de chocolate blanco.</p>
+                        <select id="size-tarta5" class="size-selector">
+                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
+                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
+                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                        </select>
+                        <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta5', 'Dinosaurus Chocblanco')">Añadir</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="nutella.jpg" alt="Nutella">
+                    <div class="card-content">
+                        <h3>Nutella</h3>
+                        <div class="allergen-icons">
+                            <img src="lacteos.png" title="Lácteos"><img src="huevos.png" title="Huevos"><img src="gluten.png" title="Gluten"><img src="frutos_secos.png" title="Frutos Secos"><img src="soja.png" title="Soja">
+                        </div>
+                        <p class="desc">Corazón fundente mezclado con auténtica crema de cacao y avellanas.</p>
+                        <select id="size-tarta6" class="size-selector">
+                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
+                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
+                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                        </select>
+                        <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta6', 'Nutella')">Añadir</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <span class="bestseller-badge">🔥 Premium</span>
+                    <img src="prox.jpg" alt="Pistacho">
+                    <div class="card-content">
+                        <h3>Pistacho Puro</h3>
+                        <div class="allergen-icons">
+                            <img src="lacteos.png" title="Lácteos"><img src="huevos.png" title="Huevos"><img src="gluten.png" title="Gluten"><img src="frutos_secos.png" title="Frutos Secos">
+                        </div>
+                        <p class="desc">Praliné de pistacho ibérico 100%. Un sabor profundo y muy elegante.</p>
+                        
+                        <select id="size-tarta7" class="size-selector">
+                            <option data-size="Pequeña (~500g)" data-price="9">Pequeña (500g) - 9€</option>
+                            <option data-size="Mediana (~1.4kg)" data-price="22">Mediana (1.4kg) - 22€</option>
+                            <option data-size="Grande (~3kg)" data-price="38">Grande (3kg) - 38€</option>
+                        </select>
+                        <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta7', 'Pistacho')">Añadir</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="prox.jpg" alt="Galleta con chocolate">
+                    <div class="card-content">
+                        <h3>Galleta y Chocolate</h3>
+                        <div class="allergen-icons">
+                            <img src="lacteos.png" title="Lácteos"><img src="huevos.png" title="Huevos"><img src="gluten.png" title="Gluten"><img src="soja.png" title="Soja">
+                        </div>
+                        <p class="desc">La perfecta combinación casera entre la mejor galleta y un chocolate intenso.</p>
+                        <select id="size-tarta8" class="size-selector">
+                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
+                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
+                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                        </select>
+                        <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta8', 'Galleta con chocolate')">Añadir</button>
+                    </div>
+                </article>
+
+                <article class="product-card">
+                    <img src="clasica.jpg" alt="Tarta Sin Gluten">
+                    <div class="card-content">
+                        <h3 style="color: var(--color-accent);">Opción Sin Gluten</h3>
+                        <div class="allergen-icons">
+                            <img src="lacteos.png" title="Lácteos"><img src="huevos.png" title="Huevos">
+                        </div>
+                        <p class="desc">Nuestra clásica adaptada con base sin TACC. <br> <strong style="color: var(--color-primary); font-size: 0.85rem;">*Por favor, consulta por WhatsApp para más información e intolerancias.</strong></p>
+                        <select id="size-tarta9" class="size-selector">
+                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
+                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
+                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                        </select>
+                        <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta9', 'Sin Gluten')">Añadir</button>
+                    </div>
+                </article>
+                
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h4>Coni Cheesecake</h4>
+                <p>Artesanía en cada porción. Tartas de queso fundentes elaboradas con ingredientes de máxima calidad.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Contacto</h4>
+                <p>Néstor Soriano López</p>
+                <p>📍 La Font de la Figuera</p>
+                <p>📞 644 21 91 18</p>
+                <p>✉️ conicheesecake@gmail.com</p>
+            </div>
+            <div class="footer-col">
+                <h4>Redes</h4>
+                <a href="https://instagram.com/ConiCheesecake" target="_blank">Instagram (@ConiCheesecake)</a>
+            </div>
+        </div>
+        <div class="container footer-divider">
+            <p>© 2026 Coni Cheesecake. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>
