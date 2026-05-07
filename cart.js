@@ -8,13 +8,13 @@ function addProductToCart(event, productId, name) {
     const selectElement = document.getElementById('size-' + productId);
     const selectedOption = selectElement.options[selectElement.selectedIndex];
     const sizeName = selectedOption.getAttribute('data-size');
-    const price = parseFloat(selectedOption.getAttribute('data-price'));
+    // El precio se ignora completamente
 
     const card = event.target.closest('article');
     const imgSrc = card.querySelector('img').src;
 
     flyToCartAnimation(event.target, imgSrc);
-    addToCart(name, sizeName, price);
+    addToCart(name, sizeName);
 }
 
 function flyToCartAnimation(buttonElement, imgSrc) {
@@ -93,12 +93,12 @@ function toggleCart(forceOpen = null) {
     }
 }
 
-function addToCart(name, sizeName, price) {
+function addToCart(name, sizeName) {
     const existingItem = cart.find(item => item.name === name && item.size === sizeName);
     if (existingItem) {
         existingItem.quantity += 1;
     } else {
-        cart.push({ name, size: sizeName, price, quantity: 1 });
+        cart.push({ name, size: sizeName, quantity: 1 });
     }
     saveCart();
     updateCartUI();
@@ -120,20 +120,16 @@ function updateCartUI() {
     
     const cartItemsDiv = document.getElementById('cart-items-container');
     cartItemsDiv.innerHTML = '';
-    let total = 0;
     
     if (cart.length === 0) {
         cartItemsDiv.innerHTML = '<p style="text-align:center; color: #B098C6; margin-top:40px;">Tu cesta está vacía</p>';
     } else {
         cart.forEach((item, index) => {
-            const itemTotal = item.price * item.quantity;
-            total += itemTotal;
             cartItemsDiv.innerHTML += `
                 <div class="cart-item">
                     <div class="cart-item-info">
                         <h4>${item.name}</h4>
-                        <small>Tamaño: ${item.size}</small><br>
-                        <small style="color: var(--color-primary); font-weight: bold;">${itemTotal}€</small>
+                        <small>Tamaño: ${item.size}</small>
                     </div>
                     <div style="text-align: right; display: flex; flex-direction: column; align-items: flex-end; gap: 8px;">
                         <div class="quantity-controls">
@@ -146,7 +142,9 @@ function updateCartUI() {
             `;
         });
     }
-    document.getElementById('cart-total').innerText = total + '€';
+    // Si tienes un elemento 'cart-total' en el HTML, lo dejamos vacío o puedes borrar esa línea del HTML
+    const totalDisplay = document.getElementById('cart-total');
+    if(totalDisplay) totalDisplay.innerText = '';
 }
 
 function sendToWhatsApp() {
@@ -156,15 +154,12 @@ function sendToWhatsApp() {
     }
     
     let message = "Hola, me gustaría realizar el siguiente encargo:%0A%0A";
-    let total = 0;
     
     cart.forEach(item => {
-        const itemTotal = item.price * item.quantity;
-        total += itemTotal;
-        message += ` ${item.quantity}x ${item.name}%0A   Tamaño: ${item.size} (${itemTotal}€)%0A`;
+        message += `▪️ ${item.quantity}x ${item.name}%0A   └ Tamaño: ${item.size}%0A`;
     });
     
-    message += `%0A*TOTAL DEL PEDIDO: ${total}€*%0A%0A¿Para cuándo podría recogerlo en La Font de la Figuera?`;
+    message += `%0A¿Para cuándo podría recogerlo en La Font de la Figuera?`;
     
     const telefonoWhatsApp = "34644219118"; 
     window.open(`https://wa.me/${telefonoWhatsApp}?text=${message}`, '_blank');

@@ -39,7 +39,6 @@
         </div>
         <div id="cart-items-container" class="cart-items"></div>
         <div class="cart-footer">
-            <div class="total-line"><span>Total estimado:</span> <span id="cart-total">0€</span></div>
             <button class="btn btn-primary w-100" onclick="sendToWhatsApp()">Pedir por WhatsApp</button>
             <p style="text-align: center; font-size: 0.8rem; color: var(--color-text-light); margin-top: 10px;">Pago en recogida. La Font de la Figuera.</p>
         </div>
@@ -70,9 +69,9 @@
                         <p style="font-size: 1.1rem; margin-bottom: 20px; opacity: 0.9; flex-grow: 1;">Nuestra crema fundente clásica fusionada con chocolate intenso y coronada con trozos de auténtico gofre belga.</p>
                         
                         <select id="size-especial-mes" class="size-selector" style="margin-bottom: 25px; border:none; background: rgba(255,255,255,0.9);">
-                            <option data-size="Pequeña (3 pers)" data-price="9">Pequeña (500g) - 9€</option>
-                            <option data-size="Mediana (8 pers)" data-price="22">Mediana (1.4kg) - 22€</option>
-                            <option data-size="Grande (16 pers)" data-price="38">Grande (3kg) - 38€</option>
+                            <option data-size="Pequeña (3 pers)">Pequeña (500g)</option>
+                            <option data-size="Mediana (8 pers)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (16 pers)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-outline" style="border-color: white; color: white; width: 100%;" onclick="addProductToCart(event, 'especial-mes', 'Chocolate y Gofre (Mes)')">Añadir al carrito</button>
                     </div>
@@ -93,9 +92,9 @@
                         <p style="font-size: 1.1rem; margin-bottom: 20px; opacity: 0.9; flex-grow: 1;">El equilibrio perfecto. Crema suave con un toque cítrico vibrante de limón, coronada con un merengue italiano flambeado a mano.</p>
                         
                         <select id="size-especial-temp" class="size-selector" style="margin-bottom: 25px; border:none; background: rgba(255,255,255,0.9);">
-                            <option data-size="Pequeña (3 pers)" data-price="9">Pequeña (500g) - 9€</option>
-                            <option data-size="Mediana (8 pers)" data-price="22">Mediana (1.4kg) - 22€</option>
-                            <option data-size="Grande (16 pers)" data-price="38">Grande (3kg) - 38€</option>
+                            <option data-size="Pequeña (3 pers)">Pequeña (500g)</option>
+                            <option data-size="Mediana (8 pers)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (16 pers)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-outline" style="border-color: white; color: white; width: 100%;" onclick="addProductToCart(event, 'especial-temp', 'Limón y Merengue (Temporada)')">Añadir al carrito</button>
                     </div>
@@ -119,9 +118,9 @@
                         </div>
                         <p class="desc">La receta pura. Quesos cremosos seleccionados y base crujiente.</p>
                         <select id="size-tarta1" class="size-selector">
-                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
-                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
-                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                            <option data-size="Pequeña (~500g)">Pequeña (500g)</option>
+                            <option data-size="Mediana (~1.4kg)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (~3kg)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta1', 'Clásica')">Añadir</button>
                     </div>
@@ -136,9 +135,9 @@
                         </div>
                         <p class="desc">Base oscura, interior cremoso con trozos y lluvia de chocolate.</p>
                         <select id="size-tarta2" class="size-selector">
-                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
-                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
-                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                            <option data-size="Pequeña (~500g)">Pequeña (500g)</option>
+                            <option data-size="Mediana (~1.4kg)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (~3kg)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta2', 'Oreo')">Añadir</button>
                     </div>
@@ -153,9 +152,9 @@
                         </div>
                         <p class="desc">Base y cobertura espectacular de galleta caramelizada Lotus Biscoff.</p>
                         <select id="size-tarta3" class="size-selector">
-                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
-                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
-                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                            <option data-size="Pequeña (~500g)">Pequeña (500g)</option>
+                            <option data-size="Mediana (~1.4kg)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (~3kg)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta3', 'Lotus')">Añadir</button>
                     </div>
@@ -170,9 +169,9 @@
                         </div>
                         <p class="desc">El sabor inconfundible. Crema de avellanas tostadas y chocolate con leche.</p>
                         <select id="size-tarta4" class="size-selector">
-                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
-                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
-                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                            <option data-size="Pequeña (~500g)">Pequeña (500g)</option>
+                            <option data-size="Mediana (~1.4kg)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (~3kg)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta4', 'Kinder')">Añadir</button>
                     </div>
@@ -187,9 +186,9 @@
                         </div>
                         <p class="desc">Pura nostalgia. Base de galleta mítica y deliciosa capa de chocolate blanco.</p>
                         <select id="size-tarta5" class="size-selector">
-                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
-                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
-                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                            <option data-size="Pequeña (~500g)">Pequeña (500g)</option>
+                            <option data-size="Mediana (~1.4kg)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (~3kg)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta5', 'Dinosaurus Chocblanco')">Añadir</button>
                     </div>
@@ -204,9 +203,9 @@
                         </div>
                         <p class="desc">Corazón fundente mezclado con auténtica crema de cacao y avellanas.</p>
                         <select id="size-tarta6" class="size-selector">
-                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
-                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
-                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                            <option data-size="Pequeña (~500g)">Pequeña (500g)</option>
+                            <option data-size="Mediana (~1.4kg)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (~3kg)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta6', 'Nutella')">Añadir</button>
                     </div>
@@ -223,9 +222,9 @@
                         <p class="desc">Praliné de pistacho ibérico 100%. Un sabor profundo y muy elegante.</p>
                         
                         <select id="size-tarta7" class="size-selector">
-                            <option data-size="Pequeña (~500g)" data-price="9">Pequeña (500g) - 9€</option>
-                            <option data-size="Mediana (~1.4kg)" data-price="22">Mediana (1.4kg) - 22€</option>
-                            <option data-size="Grande (~3kg)" data-price="38">Grande (3kg) - 38€</option>
+                            <option data-size="Pequeña (~500g)">Pequeña (500g)</option>
+                            <option data-size="Mediana (~1.4kg)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (~3kg)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta7', 'Pistacho')">Añadir</button>
                     </div>
@@ -240,9 +239,9 @@
                         </div>
                         <p class="desc">La perfecta combinación casera entre la mejor galleta y un chocolate intenso.</p>
                         <select id="size-tarta8" class="size-selector">
-                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
-                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
-                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                            <option data-size="Pequeña (~500g)">Pequeña (500g)</option>
+                            <option data-size="Mediana (~1.4kg)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (~3kg)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta8', 'Galleta con chocolate')">Añadir</button>
                     </div>
@@ -257,9 +256,9 @@
                         </div>
                         <p class="desc">Nuestra clásica adaptada con base sin TACC. <br> <strong style="color: var(--color-primary); font-size: 0.85rem;">*Por favor, consulta por WhatsApp para más información e intolerancias.</strong></p>
                         <select id="size-tarta9" class="size-selector">
-                            <option data-size="Pequeña (~500g)" data-price="8">Pequeña (500g) - 8€</option>
-                            <option data-size="Mediana (~1.4kg)" data-price="20">Mediana (1.4kg) - 20€</option>
-                            <option data-size="Grande (~3kg)" data-price="36">Grande (3kg) - 36€</option>
+                            <option data-size="Pequeña (~500g)">Pequeña (500g)</option>
+                            <option data-size="Mediana (~1.4kg)">Mediana (1.4kg)</option>
+                            <option data-size="Grande (~3kg)">Grande (3kg)</option>
                         </select>
                         <button class="btn btn-primary w-100" onclick="addProductToCart(event, 'tarta9', 'Sin Gluten')">Añadir</button>
                     </div>
