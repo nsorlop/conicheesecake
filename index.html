@@ -3,155 +3,67 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coni Cheesecake | Alta Repostería en La Font de la Figuera</title>
-    
-    <meta property="og:title" content="Coni Cheesecake | Alta Repostería">
-    <meta property="og:description" content="Tartas de queso artesanales. Textura sedosa, interior fundente y base crujiente en La Font de la Figuera.">
-    <meta property="og:image" content="publicitat_coni_cheesecake.png">
-    <meta property="og:url" content="https://conicheesecake.com">
-    <meta property="og:type" content="website">
-
+    <title>Coni Cheesecake | Pasión por la Repostería Casera</title>
     <link rel="icon" type="image/png" href="logo2.png">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
         <div class="container nav-container">
-            <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
             <a href="index.html" class="logo">
-                <img src="logo2.png" alt="Coni Cheesecake Logo" class="nav-logo">
+                <img src="logo2.png" alt="Coni Logo" class="nav-logo">
             </a>
             <div class="nav-links" id="nav-links">
-                <button class="close-menu" onclick="closeAllModals()">×</button>
+                <button class="close-menu" onclick="toggleMenu()">×</button>
                 <a href="index.html">Inicio</a>
-                <a href="tartas.html">Nuestras Tartas</a>
-                <a href="nosotros.html">La Esencia</a>
+                <a href="tartas.html">Mis Recetas</a>
+                <a href="nosotros.html">Sobre mí</a>
             </div>
-            <button class="cart-btn" onclick="toggleCart(true)">🛒 <span class="cart-text">Cesta</span> (<span id="cart-count">0</span>)</button>
         </div>
     </nav>
 
-    <div id="cart-overlay" class="cart-overlay" onclick="closeAllModals()"></div>
-    
-    <div id="cart-sidebar" class="cart-sidebar">
-        <div class="cart-header">
-            <h3 style="color: var(--color-primary); font-size: 1.5rem;">Tu Pedido</h3>
-            <button class="close-cart" onclick="toggleCart(false)">×</button>
-        </div>
-        <div id="cart-items-container" class="cart-items"></div>
-        <div class="cart-footer">
-            <div class="total-line"><span>Total estimado:</span> <span id="cart-total">0€</span></div>
-            <button class="btn btn-primary w-100" onclick="sendToWhatsApp()">Pedir por WhatsApp</button>
-            <p style="text-align: center; font-size: 0.8rem; color: var(--color-text-light); margin-top: 10px;">Pago en recogida. La Font de la Figuera.</p>
-        </div>
-    </div>
-
-    <section class="section bg-white" style="padding: 100px 0;">
-        <div class="container" style="text-align: center; max-width: 800px;">
-            <img src="logo2.png" alt="Coni Cheesecake" class="hero-logo">
-            <p style="text-transform: uppercase; letter-spacing: 3px; color: var(--color-secondary); margin-bottom: 20px; font-weight: 700;">Artesanía & Tradición</p>
-            <h1 style="font-size: 4rem; line-height: 1.1; margin-bottom: 30px;">El placer sublime del queso.</h1>
-            <p style="font-size: 1.25rem; margin-bottom: 40px; color: var(--color-text-light);">Tartas elaboradas a diario en La Font de la Figuera. Textura sedosa, interior fundente y una base de galleta inconfundible coronada con pasión.</p>
-            <a href="tartas.html" class="btn btn-primary" style="padding: 18px 40px; font-size: 1.1rem;">Ver Colección de Tartas</a>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 50px;">
-                <h2 style="font-size: 2.5rem;">Nuestros Pilares</h2>
-                <p style="color: var(--color-text-light);">Por qué nuestras tartas son diferentes.</p>
-            </div>
-            <div class="steps-grid">
-                <div class="step-card bg-white">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--color-accent);">🌿 Ingredientes Top</h3>
-                    <p>Quesos crema nacionales seleccionados, huevos camperos de proximidad y chocolate belga.</p>
-                </div>
-                <div class="step-card bg-white">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--color-accent);">🔥 Horneado Diario</h3>
-                    <p>No almacenamos. Tu tarta se prepara y hornea exclusivamente para ti el día que la necesitas.</p>
-                </div>
-                <div class="step-card bg-white">
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px; color: var(--color-accent);">🥄 Textura Única</h3>
-                    <p>Un centro fundente y cremoso que contrasta perfectamente con nuestra base crujiente tostada.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="section bg-white">
-        <div class="container">
-            <h2 class="text-center" style="font-size: 2.5rem;">Cómo hacer tu encargo</h2>
-            <div class="steps-grid">
-                <div class="step-card">
-                    <div class="step-number">1</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Elige tu Tarta</h3>
-                    <p>Explora nuestras 9 variedades y las ediciones especiales. Selecciona el tamaño ideal.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">2</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Envía un WhatsApp</h3>
-                    <p>Desde la cesta de esta web se generará tu pedido directo a nuestro teléfono.</p>
-                </div>
-                <div class="step-card">
-                    <div class="step-number">3</div>
-                    <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Recoge y Disfruta</h3>
-                    <p>Te confirmaremos el encargo y la hora de recogida en nuestro obrador.</p>
-                </div>
-            </div>
+        <div class="container" style="text-align: center; max-width: 800px;">
+            <img src="logo2.png" alt="Coni Logo" class="hero-logo">
+            <h1 style="font-size: 3.5rem; margin-bottom: 20px;">Mi rincón del cheesecake.</h1>
+            <p style="font-size: 1.2rem; color: var(--color-text-light);">Un espacio dedicado a la experimentación y el perfeccionamiento de la tarta de queso casera en La Font de la Figuera. Pasión por la repostería artesanal sin pretensiones.</p>
         </div>
     </section>
 
     <section class="section">
-        <div class="container">
-            <div class="text-center">
-                <p style="color: var(--color-secondary); font-weight: bold; letter-spacing: 2px; text-transform: uppercase;">La Calidad es Nuestra Base</p>
-                <h2 style="font-size: 2.5rem; margin-bottom: 10px;">Solo Ingredientes Naturales</h2>
-                <p style="max-width: 600px; margin: 0 auto 40px; color: var(--color-text-light);">Seleccionamos cuidadosamente cada materia prima para garantizar un sabor auténtico y una textura inigualable. Sin conservantes ni aditivos innecesarios.</p>
-            </div>
-            <div class="ig-grid">
-                <img src="quesocrema.jpg" alt="Queso Crema Fresco y Natural">
-                <img src="https://images.unsplash.com/photo-1601004890684-d8cbf643f5f2?auto=format&fit=crop&w=400" alt="Frutos Rojos Frescos y Selección">
-                <img src="https://images.unsplash.com/photo-1516448620398-c5f44bf9f441?auto=format&fit=crop&w=400" alt="Huevos Camperos de Proximidad">
-                <img src="Mantequilla.jpg" alt="mantequilla tostada para la base de galleta">
-            </div>
-        </div>
-    </section>
-
-    <section class="section bg-white" style="padding-bottom: 120px;">
         <div class="container text-center">
-            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Dónde Encontrarnos</h2>
-            <p style="margin-bottom: 40px; color: var(--color-text-light);">Recogidas en obrador. La Font de la Figuera, Valencia.</p>
-            <div class="map-container">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12354.717904323678!2d-0.887413665234375!3d38.8066539!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd61914902197607%3A0x402b1f3c3a44d00!2s46630%20La%20Font%20de%20la%20Figuera%2C%20Valencia!5e0!3m2!1ses!2ses!4v1716380000000!5m2!1ses!2ses" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <h2 style="margin-bottom: 40px;">Mi Filosofía</h2>
+            <div class="menu-grid">
+                <div class="card-content">
+                    <h3>Pura Afición</h3>
+                    <p>Todo lo que ves aquí es fruto de horas de pruebas en mi cocina personal.</p>
+                </div>
+                <div class="card-content">
+                    <h3>Ingredientes</h3>
+                    <p>Uso siempre productos que encuentro en el mercado local, buscando el sabor de antes.</p>
+                </div>
+                <div class="card-content">
+                    <h3>Comunidad</h3>
+                    <p>Me encanta compartir resultados con amigos y familiares de mi entorno.</p>
+                </div>
             </div>
         </div>
     </section>
 
     <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>Coni Cheesecake</h4>
-                <p>Artesanía en cada porción. Tartas de queso fundentes elaboradas con ingredientes de máxima calidad.</p>
+        <div class="container">
+            <h4>Coni Cheesecake</h4>
+            <p>Porfolio personal de repostería creativa.</p>
+            <div class="footer-divider">
+                <p>Nota: Este sitio web es un blog personal sin fines comerciales ni lucrativos. No se realizan ventas ni servicios al público.</p>
+                <p>&copy; 2026 Coni Cheesecake. La Font de la Figuera.</p>
             </div>
-            <div class="footer-col">
-                <h4>Contacto</h4>
-                <p>Néstor Soriano López</p>
-                <p>📍 La Font de la Figuera</p>
-                <p>📞 644 21 91 18</p>
-                <p>✉️ conicheesecake@gmail.com</p>
-            </div>
-            <div class="footer-col">
-                <h4>Redes</h4>
-                <a href="https://instagram.com/ConiCheesecake" target="_blank">Instagram (@ConiCheesecake)</a>
-            </div>
-        </div>
-        <div class="container footer-divider">
-            <p>© 2026 Coni Cheesecake. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <script src="cart.js"></script>
+    <script>
+        function toggleMenu() { document.getElementById('nav-links').classList.toggle('open'); }
+    </script>
 </body>
 </html>

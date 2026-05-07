@@ -3,105 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Coni Cheesecake | La Esencia</title>
-    
-    <meta property="og:title" content="Nuestra Historia | Coni Cheesecake">
-    <meta property="og:description" content="Conoce a Néstor Soriano y el proceso artesanal detrás de las tartas de queso de La Font de la Figuera.">
-    <meta property="og:image" content="publicitat_coni_cheesecake.png">
-
+    <title>Sobre mí | Coni Cheesecake</title>
     <link rel="icon" type="image/png" href="logo2.png">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <nav>
         <div class="container nav-container">
-            <button class="hamburger" onclick="toggleMobileMenu()">☰</button>
+            <button class="hamburger" onclick="toggleMenu()">☰</button>
             <a href="index.html" class="logo">
-                <img src="logo2.png" alt="Coni Cheesecake Logo" class="nav-logo">
+                <img src="logo2.png" alt="Logo" class="nav-logo">
             </a>
             <div class="nav-links" id="nav-links">
-                <button class="close-menu" onclick="closeAllModals()">×</button>
+                <button class="close-menu" onclick="toggleMenu()">×</button>
                 <a href="index.html">Inicio</a>
-                <a href="tartas.html">Nuestras Tartas</a>
-                <a href="nosotros.html">La Esencia</a>
+                <a href="tartas.html">Mis Recetas</a>
+                <a href="nosotros.html">Sobre mí</a>
             </div>
-            <button class="cart-btn" onclick="toggleCart(true)">🛒 <span class="cart-text">Cesta</span> (<span id="cart-count">0</span>)</button>
         </div>
     </nav>
 
-    <div id="cart-overlay" class="cart-overlay" onclick="closeAllModals()"></div>
-
-    <div id="cart-sidebar" class="cart-sidebar">
-        <div class="cart-header">
-            <h3 style="color: var(--color-primary); font-size: 1.5rem;">Tu Pedido</h3>
-            <button class="close-cart" onclick="toggleCart(false)">×</button>
-        </div>
-        <div id="cart-items-container" class="cart-items"></div>
-        <div class="cart-footer">
-            <div class="total-line"><span>Total estimado:</span> <span id="cart-total">0€</span></div>
-            <button class="btn btn-primary w-100" onclick="sendToWhatsApp()">Pedir por WhatsApp</button>
-            <p style="text-align: center; font-size: 0.8rem; color: var(--color-text-light); margin-top: 10px;">Pago en recogida. La Font de la Figuera.</p>
-        </div>
-    </div>
-
-    <section class="section bg-white" style="padding-top: 150px;">
-        <div class="container" style="max-width: 800px; text-align: center;">
-            <p style="text-transform: uppercase; letter-spacing: 3px; color: var(--color-secondary); margin-bottom: 10px; font-weight: 700;">NUESTRA HISTORIA</p>
-            <h2 style="font-size: 3.5rem; margin-bottom: 40px;">Ingredientes honestos.<br>Elaboración de origen.</h2>
-            <p style="font-size: 1.15rem; line-height: 1.9; color: var(--color-text-light);">
-                La figura del conejo en nuestro logo no es casual. Representa nuestro origen, el cuidado por el detalle y la dedicación de una familia. 
-                Hacemos tartas de queso porque es lo que mejor sabemos hacer. Sin gelatinas, sin polvos industriales, sin atajos.
-            </p>
-        </div>
-    </section>
-
-    <section class="section">
-        <div class="container profile-grid">
-            <div>
-                <img src="lafont.jpg" alt="Vista paisajística de La Font de la Figuera, origen de Coni Cheesecake" class="profile-img">
-            </div>
-            <div>
-                <p style="color: var(--color-secondary); font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px;">El Alma del Obrador</p>
-                <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Arraigados a La Font de la Figuera</h2>
-                <p style="font-size: 1.1rem; color: var(--color-text-light); margin-bottom: 15px;">Soy Néstor Soriano López, y Coni Cheesecake nace de la pasión por la repostería honesta y del amor por mi pueblo, La Font de la Figuera. Es aquí, en el corazón de nuestra tierra, donde horneamos cada tarta con dedicación y paciencia.</p>
-                <p style="font-size: 1.1rem; color: var(--color-text-light);">Mi obsesión siempre ha sido encontrar la receta perfecta: esa que logra una costra exterior dorada, una base de galleta con el punto exacto de mantequilla tostada, y un corazón que se deshace en la boca. Desde nuestro pequeño obrador local, preparamos cada tarta a mano, bajo demanda, para garantizar que llegue a tu mesa en su punto óptimo de frescura y cremosidad.</p>
-            </div>
-        </div>
-    </section>
-
     <section class="section bg-white">
-        <div class="container" style="text-align: center; max-width: 800px;">
-            <h2 style="font-size: 2.5rem; margin-bottom: 30px;">Nuestra Promesa</h2>
-            <p style="font-size: 1.15rem; line-height: 1.9; color: var(--color-text-light);">
-                Solo usamos huevos camperos frescos, una mezcla secreta de los mejores quesos crema nacionales y un horneado milimétrico para conseguir ese centro fundente perfecto. Todo comienza con una base molida a mano y termina en tu mesa. No es solo un postre, es el clímax de tu comida.
-            </p>
+        <div class="container" style="max-width: 800px; text-align: center;">
+            <h2>El origen de una afición</h2>
+            <br>
+            <p>Me llamo Néstor y este blog nace de mi curiosidad por el mundo del dulce. Vivo en La Font de la Figuera, un lugar que me inspira para probar nuevas combinaciones en mi cocina.</p>
+            <br>
+            <p>Coni Cheesecake no es un negocio, es simplemente el nombre que le puse a mis libretas de recetas. Aquí documento mis avances, las fotos de lo que horneo para mis cenas con amigos y mi evolución como repostero autodidacta.</p>
+            <br>
+            <p>No acepto encargos ni realizo ventas; este es un espacio para la comunidad de amantes del queso y la cocina casera.</p>
         </div>
     </section>
 
     <footer>
-        <div class="container footer-grid">
-            <div class="footer-col">
-                <h4>Coni Cheesecake</h4>
-                <p>Artesanía en cada porción. Tartas de queso fundentes elaboradas con ingredientes de máxima calidad.</p>
+        <div class="container">
+            <div class="footer-divider">
+                <p>Blog personal de Néstor Soriano. Sin actividad comercial.</p>
+                <p>&copy; 2026 Coni Cheesecake.</p>
             </div>
-            <div class="footer-col">
-                <h4>Contacto</h4>
-                <p>Néstor Soriano López</p>
-                <p>📍 La Font de la Figuera</p>
-                <p>📞 644 21 91 18</p>
-                <p>✉️ conicheesecake@gmail.com</p>
-            </div>
-            <div class="footer-col">
-                <h4>Redes</h4>
-                <a href="https://instagram.com/ConiCheesecake" target="_blank">Instagram (@ConiCheesecake)</a>
-            </div>
-        </div>
-        <div class="container footer-divider">
-            <p>© 2026 Coni Cheesecake. Todos los derechos reservados.</p>
         </div>
     </footer>
-
-    <script src="cart.js"></script>
+    <script>
+        function toggleMenu() { document.getElementById('nav-links').classList.toggle('open'); }
+    </script>
 </body>
 </html>
